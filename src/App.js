@@ -13,7 +13,6 @@ function App() {
 
   return (
     <div>
-      <h1>app</h1>
       <BrowserRouter>
         <Switch>
           <Route path="/" component={AdminHome}></Route>\
