@@ -2,15 +2,21 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Login from "./login/Login";
 import AdminHome from "./sugguestion/AdminHome";
 import NotFound from "./NotFound";
+import useToken from "./useToken"
 
 function App() {
+  const { token, setToken } = useToken();
+
+  if(!token){
+    return <Login setToken={setToken}/>
+  }
+
   return (
     <div>
       <h1>app</h1>
       <BrowserRouter>
         <Switch>
-          <Route path="/" component={Login} exact={true}></Route>
-          <Route path="/sugguestion-managing" component={AdminHome}></Route>
+          <Route path="/" component={AdminHome}></Route>\
           <Route component={NotFound}></Route>
         </Switch>
       </BrowserRouter>
