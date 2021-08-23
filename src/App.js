@@ -7,12 +7,19 @@ import useToken from "./useToken"
 function App() {
   const { token, setToken } = useToken();
 
+  const logout = (e) =>{
+    e.preventDefault();
+    localStorage.removeItem("token");
+    window.location.reload();
+  }
+
   if(!token){
     return <Login setToken={setToken}/>
   }
 
   return (
     <div>
+      <button onClick={logout}>logout</button>
       <BrowserRouter>
         <Switch>
           <Route path="/" component={AdminHome}></Route>\
