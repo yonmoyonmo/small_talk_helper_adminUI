@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import PropTypes from 'prop-types';
 
 async function loginAdmin(credentials) {
-  return fetch('http://localhost:5000/admin/login', {
+  return fetch('https://small-talk-helper.wonmonae.com/api/admin/login', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'

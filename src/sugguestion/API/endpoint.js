@@ -1,3 +1,3 @@
 export default function endpoint(){
-  return "http://small-talk-helper.wonmonae.com";
+  return "https://small-talk-helper.wonmonae.com/api";
 }
