@@ -8,7 +8,7 @@ const getToken = () => {
 
 export default async function addNewSugguestion(type, content) {
   const token = getToken();
-  const result = await fetch(`${endpoint()}/sugguestion/register`, {
+  const result = await fetch(`${endpoint()}/sugguestion/register/multiple`, {
     method: "POST",
     headers: {
       Authorization: token,
