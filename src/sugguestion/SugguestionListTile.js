@@ -33,11 +33,9 @@ const SugguestionListTile = ({ sugguestion }) => {
 
   const normal = (
     <div>
-      <p>id : {sugguestion.id}</p>
-      <p>type : {sugguestion.sugguestion_type}</p>
-      <p>content : {sugguestion.sugguestion_text}</p>
-      <p>likes : {sugguestion.count_likes}</p>
-      <p>created at : {sugguestion.created_at}</p>
+      <p>id : {sugguestion.id} | type : {sugguestion.sugguestion_type}</p>
+      <p>content : {sugguestion.sugguestion_text} | likes : {sugguestion.count_likes}</p>
+      <p>created at : {sugguestion.created_at.split('.')[0]}</p>
     </div>
   );
 

@@ -51,7 +51,7 @@ const AdminHome = () => {
   };
 
   const newSuggForm = (
-    <div style={{ margin: "2rem"}}>
+    <div style={{ margin: "2rem" }}>
       <form onSubmit={newSugguestionSubmit}>
         <div>
           <p>new sugguestion</p>
@@ -135,6 +135,26 @@ const AdminHome = () => {
           <></>
         )}
       </div>
+      <button
+        onClick={(e) => {
+          e.preventDefault();
+          if (page > 1) {
+            setPage(page - 1);
+          }
+        }}
+      >
+        이전
+      </button>
+      <button
+        onClick={(e) => {
+          e.preventDefault();
+          if (!pageStop) {
+            setPage(page + 1);
+          }
+        }}
+      >
+        다음
+      </button>
     </div>
   );
 };
