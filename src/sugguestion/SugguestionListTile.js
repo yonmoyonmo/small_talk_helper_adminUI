@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import deleteSugguestion from "./API/deleteSugguestion";
 import updateSugguestion from "./API/updateSugguestion";
+import "../style/index.css";
 
 const SugguestionListTile = ({ sugguestion }) => {
   const [update, setUpdate] = useState(false);
@@ -32,10 +33,21 @@ const SugguestionListTile = ({ sugguestion }) => {
   };
 
   const normal = (
-    <div>
-      <p>id : {sugguestion.id} | type : {sugguestion.sugguestion_type}</p>
-      <p>content : {sugguestion.sugguestion_text} | likes : {sugguestion.count_likes}</p>
-      <p>created at : {sugguestion.created_at.split('.')[0]}</p>
+    <div className="container">
+      <div className="item">
+        <p>{sugguestion.id}</p>
+      </div>
+      <div className="item">
+        <p>{sugguestion.sugguestion_type}</p>
+      </div>
+      <div className="item">
+        <p>
+          {sugguestion.sugguestion_text} [ {sugguestion.count_likes} ]
+        </p>
+      </div>
+      <div className="item">
+        <p>{sugguestion.created_at.split("T")[0]}</p>
+      </div>
     </div>
   );
 
@@ -77,7 +89,7 @@ const SugguestionListTile = ({ sugguestion }) => {
   );
 
   return (
-    <div style={{ textAlign: "left", padding: "1rem" }}>
+    <div>
       <button
         onClick={(e) => {
           e.preventDefault();
@@ -108,8 +120,6 @@ const SugguestionListTile = ({ sugguestion }) => {
       {message ? <p>{message}</p> : <></>}
 
       {update ? form : normal}
-
-      <hr />
     </div>
   );
 };

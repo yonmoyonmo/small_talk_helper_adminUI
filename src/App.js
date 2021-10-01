@@ -1,20 +1,21 @@
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Login from "./login/Login";
 import AdminHome from "./sugguestion/AdminHome";
-import NotFound from "./NotFound";
-import useToken from "./useToken"
+import UserSugguestion from "./sugguestion/UserSugguestion";
+import { NotFound } from "http-errors";
+import useToken from "./useToken";
 
 function App() {
   const { token, setToken } = useToken();
 
-  const logout = (e) =>{
+  const logout = (e) => {
     e.preventDefault();
     localStorage.removeItem("token");
     window.location.reload();
-  }
+  };
 
-  if(!token){
-    return <Login setToken={setToken}/>
+  if (!token) {
+    return <Login setToken={setToken} />;
   }
 
   return (
@@ -22,7 +23,8 @@ function App() {
       <button onClick={logout}>logout</button>
       <BrowserRouter>
         <Switch>
-          <Route path="/" component={AdminHome}></Route>\
+          <Route path="/" component={AdminHome} exact></Route>
+          <Route path="/users" component={UserSugguestion}></Route>
           <Route component={NotFound}></Route>
         </Switch>
       </BrowserRouter>

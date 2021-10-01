@@ -86,7 +86,8 @@ const AdminHome = () => {
   );
 
   return (
-    <div>
+    <div style={{ textAlign: "left", margin: "0.7rem" }}>
+      <a href="/users">유저가 추천한거 보기</a>
       <h1>admin home</h1>
       <h3>대화 주제 리스트</h3>
 
