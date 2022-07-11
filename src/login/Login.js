@@ -1,36 +1,34 @@
 import React, { useState } from "react";
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
 async function loginAdmin(credentials) {
-  return fetch('https://small-talk-helper.wonmonae.com/api/admin/login', {
-    method: 'POST',
+  return fetch("https://small-talk-helper.woncyberschool.com/api/admin/login", {
+    method: "POST",
     headers: {
-      'Content-Type': 'application/json'
+      "Content-Type": "application/json",
     },
-    body: JSON.stringify(credentials)
-  })
-    .then(data => data.json());
- }
- 
+    body: JSON.stringify(credentials),
+  }).then((data) => data.json());
+}
 
 const Login = ({ setToken }) => {
   const [adminName, setAdminName] = useState();
   const [password, setPassword] = useState();
 
-  const handleSubmit = async e => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const token = await loginAdmin({
-      admin_name:adminName,
-      password
+      admin_name: adminName,
+      password,
     });
     setToken(token);
-  }
+  };
 
   return (
     <div>
       <h3>login</h3>
       <div>
-        <form onSubmit = {handleSubmit}>
+        <form onSubmit={handleSubmit}>
           <label>
             <p>admin name</p>
             <input type="text" onChange={(e) => setAdminName(e.target.value)} />
