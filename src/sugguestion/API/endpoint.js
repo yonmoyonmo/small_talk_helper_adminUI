@@ -1,4 +1,4 @@
 export default function endpoint() {
-  return "https://small-talk-helper.wonmonae.com/api";
+  return "https://small-talk-helper.wonmocyberschool.com/api";
   //return "http://localhost:5000/api";
 }
