@@ -2,13 +2,16 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 
 async function loginAdmin(credentials) {
-  return fetch("https://small-talk-helper.woncyberschool.com/api/admin/login", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(credentials),
-  }).then((data) => data.json());
+  return fetch(
+    "https://small-talk-helper.wonmocyberschool.com/api/admin/login",
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(credentials),
+    }
+  ).then((data) => data.json());
 }
 
 const Login = ({ setToken }) => {
