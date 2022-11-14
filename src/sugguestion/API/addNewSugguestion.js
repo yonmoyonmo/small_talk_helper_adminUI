@@ -15,8 +15,8 @@ export default async function addNewSugguestion(type, content) {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      sugguestionText : content,
-      type : type
+      sugguestion_text: content,
+      sugguestion_type: type,
     }),
   }).then((result) => {
     return result.json();
